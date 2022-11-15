@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="light_yellow">#FFD223</color>
+    <color name="yellow">#FFCC00</color>
+    <color name="dark_yellow">#CFA500</color>
+    <color name="light_orange">#f29036</color>
+    <color name="orange">#FF6600</color>
+    <color name="dark_orange">#B34800</color>
+    <color name="blue">#017ba2</color>
+    <color name="light_blue">#017CDA</color>
+    <color name="dark_blue">#0131BF</color>
+    <color name="secondaryItemDate">#DD686868</color>
+</resources>
