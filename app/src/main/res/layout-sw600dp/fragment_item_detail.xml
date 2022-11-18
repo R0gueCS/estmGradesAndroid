@@ -1,16 +1,37 @@
 <!-- Adding the same root's ID for view binding as other layout configurations -->
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/item_detail_container"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#CDCDCD">
 
-    <TextView
-        android:id="@+id/item_detail"
-        style="?android:attr/textAppearanceLarge"
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="16dp"
-        android:textIsSelectable="true"
-        tools:context="src.estm_news.ItemDetailFragment" />
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+        android:layout_height="wrap_content"
+        android:gravity="clip_vertical|clip_horizontal"
+        android:src="@drawable/header" />
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/item_detail"
+                style="?android:attr/textAppearanceLarge"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="16dp"
+                android:textColor="#131313"
+                android:textIsSelectable="true"
+                tools:context="src.estm_news.ItemDetailFragment" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
