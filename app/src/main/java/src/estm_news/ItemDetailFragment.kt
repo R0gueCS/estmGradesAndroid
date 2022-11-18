@@ -39,6 +39,7 @@ class ItemDetailFragment : Fragment() {
         val rootView = binding.root
         toolbarLayout = binding.toolbarLayout
         itemDetailTextView = binding.itemDetail!!
+
         updateContent()
         return rootView
     }

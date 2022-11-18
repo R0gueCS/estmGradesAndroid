@@ -7,4 +7,6 @@
     <string name="entrez_votre_mot_de_passe">Entrez votre mot de passe</string>
     <string name="mot_de_passe">mot de passe</string>
     <string name="entrez_cne">Entrez CNE ...</string>
+    <string name="title_activity_login_page">LoginPage</string>
+    <string name="item_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus in ex a velit hendrerit dapibus quis non felis. Quisque varius at ante id porttitor. Nullam ac rhoncus magna. Maecenas interdum tellus id eros bibendum, sit amet pretium odio lacinia. Morbi dignissim, nunc quis sodales auctor, odio turpis tempus velit, pellentesque vestibulum sem libero et enim. Fusce sodales elementum ultrices. Morbi nec turpis sit amet justo ornare aliquet. olestie non est ac fringilla. Fusce eleifend rutrum nunc ut .  Suspendisse neque neque, fringilla quis sollicitudin at, efficitur nec ligula. Mauris laoreet nulla ut fermentum consectetur. Etiam luctus non nibh nec egestas.</string>
 </resources>
