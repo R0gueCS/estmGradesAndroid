@@ -5,7 +5,7 @@
     android:id="@+id/item_detail_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#CDCDCD"
+    android:background="#EAEAEA"
     tools:context=".ItemDetailHostActivity"
     tools:ignore="MergeRootFrame">
 
@@ -20,10 +20,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/header"
-
             app:contentScrim="?attr/colorPrimary"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
-            app:titleTextColor="@color/light_blue"
             app:toolbarId="@+id/toolbar">
 
             <androidx.appcompat.widget.Toolbar
@@ -31,7 +29,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:layout_collapseMode="pin"
-                app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+                android:paddingLeft="4sp"
+                app:titleTextColor="@color/black"/>
+<!--                app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />-->
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
 
@@ -48,20 +48,155 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/item_detail"
-                style="?android:attr/textAppearanceLarge"
+            <!--            <TextView-->
+            <!--                android:id="@+id/item_detail"-->
+            <!--                style="?android:attr/textAppearanceLarge"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="match_parent"-->
+            <!--                android:paddingStart="@dimen/container_horizontal_margin"-->
+            <!--                android:paddingTop="16dp"-->
+            <!--                android:paddingEnd="@dimen/container_horizontal_margin"-->
+            <!--                android:paddingBottom="16dp"-->
+            <!--                android:textColor="#131313"-->
+            <!--                android:textIsSelectable="true"-->
+            <!--                tools:context="src.estm_news.ItemDetailFragment" />-->
+
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingStart="@dimen/container_horizontal_margin"
-                android:paddingTop="16dp"
-                android:paddingEnd="@dimen/container_horizontal_margin"
-                android:paddingBottom="16dp"
-                android:textColor="#131313"
-                android:textIsSelectable="true"
-                tools:context="src.estm_news.ItemDetailFragment" />
+                android:layout_margin="20sp"
+                android:background="@drawable/item_desc_style"
+                android:padding="20sp">
 
+                <TextView
+                    android:id="@+id/item_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:elevation="10dp"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="@string/item_description"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
 
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="30sp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="Duree : "
+                        android:textColor="@color/black"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="12h"
+                        android:textColor="@color/dark_blue"
+                        android:textSize="20sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20sp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="Professeur : "
+                        android:textColor="@color/black"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="m.y.Hasnaoui"
+                        android:textColor="@color/dark_blue"
+                        android:textSize="20sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="30sp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/column"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:gravity="center"
+                        android:padding="20sp"
+                        android:text="Note Cours"
+                        android:textColor="@color/black"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/secondary_column"
+                        android:fontFamily="@font/poppins_light"
+                        android:gravity="center"
+                        android:text="12"
+                        android:textColor="#000000"
+                        android:textSize="20sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/column"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:gravity="center"
+                        android:padding="20sp"
+                        android:text="Note TP"
+                        android:textColor="@color/black"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/secondary_column"
+                        android:fontFamily="@font/poppins_light"
+                        android:gravity="center"
+                        android:text="12"
+                        android:textColor="#000000"
+                        android:textSize="20sp" />
+                </LinearLayout>
+            </LinearLayout>
 
         </LinearLayout>
 
