@@ -1,6 +1,7 @@
 package src.estm_news
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -16,14 +17,16 @@ class ChoiceActivity : AppCompatActivity() {
 
         admin = findViewById<Button>(R.id.admin)
 
-        admin.setOnClickListener {
-
-        }
+//        admin.setOnClickListener {
+//            val view = Intent(this, LoginAdmin::class.java)
+//            startActivity(Intent(view))
+//        }
 
         etudiant = findViewById<Button>(R.id.etudiant)
 
         etudiant.setOnClickListener {
-
+            val view = Intent(this, login::class.java)
+            startActivity(Intent(view))
         }
 
 
