@@ -1,50 +1,38 @@
 package src.estm_news
 
-import android.content.ClipData
 import android.os.Bundle
-import android.view.DragEvent
-import androidx.fragment.app.Fragment
-import com.google.android.material.appbar.CollapsingToolbarLayout
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import src.estm_news.placeholder.PlaceholderContent
+import androidx.fragment.app.Fragment
+import com.google.android.material.appbar.CollapsingToolbarLayout
 import src.estm_news.databinding.FragmentItemDetailBinding
+import src.estm_news.placeholder.PlaceholderContent
 
-/**
- * A fragment representing a single Item detail screen.
- * This fragment is either contained in a [ItemListFragment]
- * in two-pane mode (on larger screen devices) or self-contained
- * on handsets.
- */
 class ItemDetailFragment : Fragment() {
 
-    /**
-     * The placeholder content this fragment is presenting.
-     */
-    private var item: PlaceholderContent.PlaceholderItem? = null
+    private var item: PlaceholderContent.Module? = null
+    lateinit var nom_module: TextView
+    lateinit var duree_module: TextView
+    lateinit var desc_module: TextView
+    lateinit var prof: TextView
+    lateinit var note_cours: TextView
+    lateinit var note_tp: TextView
 
-    lateinit var itemDetailTextView: TextView
     private var toolbarLayout: CollapsingToolbarLayout? = null
-
     private var _binding: FragmentItemDetailBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
-
+    companion object {
+        const val ARG_ITEM_ID = "item_id"
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         arguments?.let {
             if (it.containsKey(ARG_ITEM_ID)) {
-                // Load the placeholder content specified by the fragment
-                // arguments. In a real-world scenario, use a Loader
-                // to load content from a content provider.
-                item = PlaceholderContent.ITEM_MAP[it.getString(ARG_ITEM_ID)]
+                item = PlaceholderContent.modules_map[it.getString(ARG_ITEM_ID)]
             }
         }
     }
@@ -53,32 +41,34 @@ class ItemDetailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         _binding = FragmentItemDetailBinding.inflate(inflater, container, false)
         val rootView = binding.root
-
         toolbarLayout = binding.toolbarLayout
-        itemDetailTextView = binding.itemDetail!!
+        nom_module = binding.nomModule!!
+        desc_module = binding.descModule!!
+        duree_module = binding.valeurDuree!!
+        prof = binding.valeurProf!!
+        note_cours = binding.noteCours!!
+        note_tp = binding.noteTp!!
 
         updateContent()
         return rootView
     }
 
     private fun updateContent() {
-        toolbarLayout?.title = item?.content
-
-        // Show the placeholder content as text in a TextView.
-        item?.let {
-            itemDetailTextView.text = it.details
+        try {
+            toolbarLayout?.title = item?.nom_module
+            item?.let {
+                nom_module.text = item!!.nom_module
+                desc_module.text = item!!.description
+                duree_module.text = item!!.duree.toString()+" semaines"
+                prof.text = item!!.prof
+                note_cours.text = item!!.note_cours.toString()
+                note_tp.text = item!!.note_tp.toString()
+            }
+        }catch (e:Exception){
+            e.printStackTrace()
         }
-    }
-
-    companion object {
-        /**
-         * The fragment argument representing the item ID that this fragment
-         * represents.
-         */
-        const val ARG_ITEM_ID = "item_id"
     }
 
     override fun onDestroyView() {

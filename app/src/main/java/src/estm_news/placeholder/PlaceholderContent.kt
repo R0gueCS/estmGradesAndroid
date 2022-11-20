@@ -3,55 +3,27 @@ package src.estm_news.placeholder
 import java.util.ArrayList
 import java.util.HashMap
 
-/**
- * Helper class for providing sample content for user interfaces created by
- * Android template wizards.
- *
- * TODO: Replace all uses of this class before publishing your app.
- */
 object PlaceholderContent {
 
-    /**
-     * An array of sample (placeholder) items.
-     */
-    val ITEMS: MutableList<PlaceholderItem> = ArrayList()
+    val modules: MutableList<Module> = ArrayList()
+    val modules_map: MutableMap<String, Module> = HashMap()
 
-    /**
-     * A map of sample (placeholder) items, by ID.
-     */
-    val ITEM_MAP: MutableMap<String, PlaceholderItem> = HashMap()
-
-    private val COUNT = 25
 
     init {
         // Add some sample items.
-        for (i in 1..COUNT) {
-            addItem(createPlaceholderItem(i))
-        }
+        addModule(Module("1","Module_BD","Module de bases de données","Pr.Ghanou",12,15,12))
+        addModule(Module("2","Module_RI","Module des réseaux informatiques","Pr.Rhattoy",6,12,14))
+        addModule(Module("3","Module_POO","Module de programation orienté objet","Pr.Ouazzani",6,14,18))
+        addModule(Module("4","Module_DM","Module de développement mobile","Pr.Ait el mouden",6,16,13))
     }
 
-    private fun addItem(item: PlaceholderItem) {
-        ITEMS.add(item)
-        ITEM_MAP.put(item.id, item)
+    private fun addModule(module: Module) {
+        modules.add(module)
+        modules_map.put(module.id, module)
     }
 
-    private fun createPlaceholderItem(position: Int): PlaceholderItem {
-        return PlaceholderItem(position.toString(), "Item " + position, makeDetails(position))
+    data class Module(val id: String, val nom_module: String, val description : String, val prof : String, val duree : Int, val note_cours:Int,val note_tp:Int) {
+        override fun toString(): String = nom_module
     }
 
-    private fun makeDetails(position: Int): String {
-        val builder = StringBuilder()
-        builder.append("Details about Item: ").append(position)
-        for (i in 0..position - 1) {
-            builder.append("\nMore details information here.")
-        }
-        return builder.toString()
-    }
-
-    /**
-     * A placeholder item representing a piece of content.
-     */
-    data class PlaceholderItem(val id: String, val content: String, val details: String) {
-        override fun toString(): String = content
-    }
 }
