@@ -13,7 +13,13 @@ import src.estm_news.placeholder.PlaceholderContent
 class ItemDetailFragment : Fragment() {
 
     private var item: PlaceholderContent.Module? = null
-    lateinit var itemDetailTextView: TextView
+    lateinit var nom_module: TextView
+    lateinit var duree_module: TextView
+    lateinit var desc_module: TextView
+    lateinit var prof: TextView
+    lateinit var note_cours: TextView
+    lateinit var note_tp: TextView
+
     private var toolbarLayout: CollapsingToolbarLayout? = null
     private var _binding: FragmentItemDetailBinding? = null
     private val binding get() = _binding!!
@@ -38,7 +44,12 @@ class ItemDetailFragment : Fragment() {
         _binding = FragmentItemDetailBinding.inflate(inflater, container, false)
         val rootView = binding.root
         toolbarLayout = binding.toolbarLayout
-        itemDetailTextView = binding.itemDetail!!
+        nom_module = binding.nomModule!!
+        desc_module = binding.descModule!!
+        duree_module = binding.valeurDuree!!
+        prof = binding.valeurProf!!
+        note_cours = binding.noteCours!!
+        note_tp = binding.noteTp!!
 
         updateContent()
         return rootView
@@ -48,7 +59,12 @@ class ItemDetailFragment : Fragment() {
         try {
             toolbarLayout?.title = item?.nom_module
             item?.let {
-                itemDetailTextView.text = item!!.description
+                nom_module.text = item!!.nom_module
+                desc_module.text = item!!.description
+                duree_module.text = item!!.duree.toString()+" semaines"
+                prof.text = item!!.prof
+                note_cours.text = item!!.note_cours.toString()
+                note_tp.text = item!!.note_tp.toString()
             }
         }catch (e:Exception){
             e.printStackTrace()
