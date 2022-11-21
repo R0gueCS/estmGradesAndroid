@@ -71,6 +71,7 @@
             android:layout_marginHorizontal="10sp"
             android:fontFamily="@font/poppins_semibold"
             android:gravity="center"
+            android:inputType="textPassword"
             android:hint="@string/entrez_votre_mot_de_passe"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
