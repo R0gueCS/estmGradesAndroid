@@ -3,33 +3,26 @@ package src.estm_news
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.activity_login.*
-import kotlinx.android.synthetic.main.activity_login.view.*
 import src.estm_news.placeholder.ModuleData
 import src.estm_news.databinding.FragmentItemListBinding
 import src.estm_news.databinding.ItemListContentBinding
-import src.estm_news.login
 
 class ItemListFragment : Fragment() {
 
     private var _binding: FragmentItemListBinding? = null
     private var personnel : Personnel = Personnel()
     lateinit var loginTxt : String
-    lateinit var passwordTxt : String
     lateinit var sharedPreferences : SharedPreferences
 
     var PREFS_KEY = "prefs"
     var CNE_KEY = "cne"
-    var PWD_KEY = "pwd"
 
     private val binding get() = _binding!!
 
@@ -49,12 +42,11 @@ class ItemListFragment : Fragment() {
         sharedPreferences = activity?.getSharedPreferences(PREFS_KEY, Context.MODE_PRIVATE)!!
 
         loginTxt = sharedPreferences.getString(CNE_KEY, null)!!
-        passwordTxt = sharedPreferences.getString(PWD_KEY, null)!!
 
         val recyclerView: RecyclerView = binding.itemList
         val itemDetailFragmentContainer: View? = view.findViewById(R.id.item_detail_nav_container)
         recyclerView.adapter =
-            ModulesAdapter(personnel.getEtudiant(loginTxt,passwordTxt)!!.modulesList, itemDetailFragmentContainer)
+            ModulesAdapter(personnel.getEtudiant(loginTxt)!!.modulesList, itemDetailFragmentContainer)
     }
 
 

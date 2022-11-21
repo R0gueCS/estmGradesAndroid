@@ -48,18 +48,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!--            <TextView-->
-            <!--                android:id="@+id/item_detail"-->
-            <!--                style="?android:attr/textAppearanceLarge"-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="match_parent"-->
-            <!--                android:paddingStart="@dimen/container_horizontal_margin"-->
-            <!--                android:paddingTop="16dp"-->
-            <!--                android:paddingEnd="@dimen/container_horizontal_margin"-->
-            <!--                android:paddingBottom="16dp"-->
-            <!--                android:textColor="#131313"-->
-            <!--                android:textIsSelectable="true"-->
-            <!--                tools:context="src.estm_news.ItemDetailFragment" />-->
+
 
 
             <LinearLayout
@@ -70,12 +59,12 @@
                 android:padding="20sp">
 
                 <TextView
-                    android:id="@+id/item_detail"
+                    android:id="@+id/descModule"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:elevation="10dp"
                     android:fontFamily="@font/poppins_semibold"
-                    android:text="@string/item_description"
+                    android:text="Description du module"
                     android:textColor="@color/black"
                     android:textSize="14sp" />
 
@@ -100,10 +89,11 @@
                         android:textSize="20sp" />
 
                     <TextView
+                        android:id="@+id/valeurDuree"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_semibold"
-                        android:text="12h"
+                        android:text="Durée du module en semaines"
                         android:textColor="@color/dark_blue"
                         android:textSize="20sp" />
                 </LinearLayout>
@@ -122,10 +112,11 @@
                         android:textSize="20sp" />
 
                     <TextView
+                        android:id="@+id/valeurProf"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_semibold"
-                        android:text="m.y.Hasnaoui"
+                        android:text="Professeur"
                         android:textColor="@color/dark_blue"
                         android:textSize="20sp" />
                 </LinearLayout>
@@ -157,13 +148,14 @@
                         android:textSize="20sp" />
 
                     <TextView
+                        android:id="@+id/noteCours"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:background="@drawable/secondary_column"
                         android:fontFamily="@font/poppins_light"
                         android:gravity="center"
-                        android:text="12"
+                        android:text="note_cours"
                         android:textColor="#000000"
                         android:textSize="20sp" />
                 </LinearLayout>
@@ -186,13 +178,14 @@
                         android:textSize="20sp" />
 
                     <TextView
+                        android:id="@+id/noteTp"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:background="@drawable/secondary_column"
                         android:fontFamily="@font/poppins_light"
                         android:gravity="center"
-                        android:text="12"
+                        android:text="note_tp"
                         android:textColor="#000000"
                         android:textSize="20sp" />
                 </LinearLayout>
