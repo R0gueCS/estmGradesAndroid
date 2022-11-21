@@ -21,6 +21,7 @@ class login : AppCompatActivity() {
 
     companion object{
         lateinit var etudiantCourant : Etudiant
+        lateinit var pass : String
     }
     var personnel = Personnel()
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,10 +30,12 @@ class login : AppCompatActivity() {
 
         btnConnect.setOnClickListener {
             if (password.text.toString().isNotEmpty() && login.text.toString().isNotEmpty()) {
-                etudiantCourant = personnel.getEtudiant(login.text.toString(), password.text.toString())!!
+                pass = personnel.getPasswordByCne(login.text.toString()).toString()
+                etudiantCourant = personnel.getEtudiant(login.text.toString())!!
                 if (login.text.toString().equals(etudiantCourant.cne) && password.text.toString().equals(etudiantCourant.password)) {
 
                     sharedPreferences = getSharedPreferences(PREFS_KEY, Context.MODE_PRIVATE)
+
                     val editor: SharedPreferences.Editor = sharedPreferences.edit()
 
                     editor.putString(CNE_KEY, login.text.toString())
