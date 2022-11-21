@@ -1,5 +1,7 @@
 package src.estm_news
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,11 +9,18 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.google.android.material.appbar.CollapsingToolbarLayout
-import kotlinx.android.synthetic.main.activity_login.*
 import src.estm_news.databinding.FragmentItemDetailBinding
 import src.estm_news.placeholder.ModuleData
 
 class ItemDetailFragment : Fragment() {
+
+    lateinit var sharedPreferences : SharedPreferences
+
+    var PREFS_KEY = "prefs"
+    var CNE_KEY = "cne"
+    var PWD_KEY = "pwd"
+    lateinit var cne : String
+    lateinit var password : String
 
     private var item: ModuleData.Module? = null
     lateinit var personnel : Personnel
@@ -33,9 +42,15 @@ class ItemDetailFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         personnel = Personnel()
+        sharedPreferences = activity?.getSharedPreferences(PREFS_KEY, Context.MODE_PRIVATE)!!
+
+        cne = sharedPreferences.getString(CNE_KEY, null)!!
+        password = sharedPreferences.getString(PWD_KEY, null)!!
+
+
         arguments?.let {
             if (it.containsKey(ARG_ITEM_ID)) {
-                item = personnel.getEtudiant(login.text.toString(),password.text.toString())!!.moduleList_map[it.getString(ARG_ITEM_ID)]
+                item = personnel.getEtudiant(cne,password)!!.moduleList_map[it.getString(ARG_ITEM_ID)]
             }
         }
     }
