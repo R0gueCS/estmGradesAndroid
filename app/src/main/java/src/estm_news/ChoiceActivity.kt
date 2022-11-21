@@ -17,10 +17,10 @@ class ChoiceActivity : AppCompatActivity() {
 
         admin = findViewById<Button>(R.id.admin)
 
-//        admin.setOnClickListener {
-//            val view = Intent(this, LoginAdmin::class.java)
-//            startActivity(Intent(view))
-//        }
+        admin.setOnClickListener {
+            val view = Intent(this, LoginAdmin::class.java)
+            startActivity(Intent(view))
+        }
 
         etudiant = findViewById<Button>(R.id.etudiant)
 
