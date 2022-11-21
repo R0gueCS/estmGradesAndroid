@@ -7,12 +7,14 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.google.android.material.appbar.CollapsingToolbarLayout
+import kotlinx.android.synthetic.main.activity_login.*
 import src.estm_news.databinding.FragmentItemDetailBinding
-import src.estm_news.placeholder.PlaceholderContent
+import src.estm_news.placeholder.ModuleData
 
 class ItemDetailFragment : Fragment() {
 
-    private var item: PlaceholderContent.Module? = null
+    private var item: ModuleData.Module? = null
+    lateinit var personnel : Personnel
     lateinit var nom_module: TextView
     lateinit var duree_module: TextView
     lateinit var desc_module: TextView
@@ -30,9 +32,10 @@ class ItemDetailFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        personnel = Personnel()
         arguments?.let {
             if (it.containsKey(ARG_ITEM_ID)) {
-                item = PlaceholderContent.modules_map[it.getString(ARG_ITEM_ID)]
+                item = personnel.getEtudiant(login.text.toString(),password.text.toString())!!.moduleList_map[it.getString(ARG_ITEM_ID)]
             }
         }
     }
