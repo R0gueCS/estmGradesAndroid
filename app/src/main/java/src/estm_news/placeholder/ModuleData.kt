@@ -66,7 +66,8 @@ object ModuleData {
         modules_map1.put(module.id, module)
     }
 
-    data class Module(val id: String, val nom_module: String, val description : String, val prof : String, val duree : Int, val note_cours:Int,val note_tp:Int) {
+    data class Module(val id: String, val nom_module: String, val description : String, val prof : String, val duree : Int, var note_cours:Int,
+                      var note_tp:Int) {
         override fun toString(): String = nom_module
     }
 

@@ -9,12 +9,43 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="500sp"
+        android:layout_height="600sp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.29">
+
+        <Button
+            android:id="@+id/confirmModification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/login_btn_style"
+            android:fontFamily="@font/poppins_semibold"
+            android:paddingHorizontal="20sp"
+            android:paddingTop="4sp"
+            android:text="Modifier"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/noteCours" />
+
+        <EditText
+            android:id="@+id/nom_module"
+            android:layout_width="300sp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_semibold"
+            android:gravity="center"
+            android:text="Entrez le nom de module"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/noteTp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cne" />
 
         <EditText
             android:id="@+id/cne"
@@ -22,41 +53,13 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_semibold"
             android:gravity="center"
-            android:hint="@string/entrez_cne"
-            android:textColorHint="@color/black"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/noteTp"
+            android:text="@string/entrez_cne"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/nom_module"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <EditText
-            android:id="@+id/password"
-            android:layout_width="300sp"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins_semibold"
-            android:gravity="center"
-            android:hint="Entrez le nom de module"
-            android:textColorHint="@color/black"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/noteCours"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/noteTp" />
-
-        <EditText
-            android:id="@+id/noteCours"
-            android:layout_width="300sp"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins_semibold"
-            android:gravity="center"
-            android:hint="Entrez la note du Cours"
-            android:textColorHint="@color/black"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/button3"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/password" />
 
         <EditText
             android:id="@+id/noteTp"
@@ -64,28 +67,27 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_semibold"
             android:gravity="center"
-            android:hint="Entrez la note du TP"
-            android:textColorHint="@color/black"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/password"
+            android:text="Entrez la note du TP"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/noteCours"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cne" />
+            app:layout_constraintTop_toBottomOf="@+id/nom_module" />
 
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="wrap_content"
+        <EditText
+            android:id="@+id/noteCours"
+            android:layout_width="300sp"
             android:layout_height="wrap_content"
-            android:background="@drawable/login_btn_style"
             android:fontFamily="@font/poppins_semibold"
-            android:paddingHorizontal="20sp"
-            android:paddingTop="4sp"
-            android:text="Consulter"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:gravity="center"
+            android:text="Entrez la note du Cours"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/confirmModification"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/noteCours" />
+            app:layout_constraintTop_toBottomOf="@+id/noteTp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

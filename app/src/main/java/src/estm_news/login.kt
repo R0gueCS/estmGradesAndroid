@@ -18,11 +18,9 @@ class login : AppCompatActivity() {
     lateinit var pwd : String
     lateinit var sharedPreferences : SharedPreferences
 
+    lateinit var etudiantCourant : Etudiant
+    lateinit var pass : String
 
-    companion object{
-        lateinit var etudiantCourant : Etudiant
-        lateinit var pass : String
-    }
     var personnel = Personnel()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
