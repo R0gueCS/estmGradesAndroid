@@ -62,7 +62,7 @@
                         android:layout_height="match_parent"
                         android:elevation="10dp"
                         android:fontFamily="@font/poppins_semibold"
-                        android:text="description du moule"
+                        android:text="Description du module"
                         android:textColor="@color/black"
                         android:textSize="20sp" />
 
@@ -92,7 +92,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/poppins_semibold"
-                            android:text="Duree du module en semaines"
+                            android:text="Durée du module en semaines"
                             android:textColor="@color/dark_blue"
                             android:textSize="30sp" />
                     </LinearLayout>
@@ -116,7 +116,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/poppins_semibold"
-                            android:text="professeur du module"
+                            android:text="Professeur du module"
                             android:textColor="@color/dark_blue"
                             android:textSize="30sp" />
                     </LinearLayout>
