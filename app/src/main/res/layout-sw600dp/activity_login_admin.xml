@@ -55,7 +55,7 @@
             android:layout_marginHorizontal="10sp"
             android:fontFamily="@font/poppins_semibold"
             android:gravity="center"
-            android:hint="@string/entrez_cne"
+            android:hint="Nom d'utilisateur"
             android:textSize="20sp"
             app:layout_constraintBottom_toTopOf="@+id/btnConnect"
             app:layout_constraintEnd_toEndOf="parent"
