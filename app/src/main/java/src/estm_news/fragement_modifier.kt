@@ -35,7 +35,7 @@ class fragement_modifier : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        lateinit var etudiant : Etudiant
+        lateinit var etudiant: Etudiant
 
         super.onViewCreated(view, savedInstanceState)
         confirmModification.setOnClickListener {
@@ -44,25 +44,44 @@ class fragement_modifier : Fragment() {
             var noteCours = noteCours.text.toString()
             var moduletxt = nom_module.text.toString()
 
-            var personnel = Personnel()
-            etudiant = personnel.getEtudiant(cne)!!
+            if (cne.isNotEmpty() && moduletxt.isNotEmpty() &&
+                noteTp.isNotEmpty() && noteCours.isNotEmpty()
+            ) {
+                var personnel = Personnel()
+                etudiant = personnel.getEtudiant(cne)!!
+                if (etudiant != null) {
+                    for (module in etudiant.modulesList) {
+                        if (module.nom_module.equals(moduletxt)) {
+                            module.note_tp = noteTp.toInt()
+                            module.note_cours = noteCours.toInt()
+                        }
+                    }
 
-            for (module in etudiant.modulesList){
-                if (module.nom_module.equals(moduletxt)){
-                    module.note_tp = noteTp.toInt()
-                    module.note_cours = noteCours.toInt()
-                }
+                }else{
+                    Toast.makeText(requireContext(), "il n'éxiste aucun étudiant avec ce cne", Toast.LENGTH_SHORT)
+                        .show();
+            }
+            Toast.makeText(requireContext(), "Note modifiée avec succèes", Toast.LENGTH_SHORT)
+                .show();
+        }else{
+            Toast.makeText(
+                requireContext(),
+                "Veuilliez remplir les champs demandés!!",
+                Toast.LENGTH_SHORT
+            ).show();
+        }
+
+    }
+}
+
+companion object {
+    @JvmStatic
+    fun newInstance(param1: String, param2: String) =
+        fragement_modifier().apply {
+            arguments = Bundle().apply {
+                putString(ARG_PARAM1, param1)
+                putString(ARG_PARAM2, param2)
             }
         }
-    }
-    companion object {
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            fragement_modifier().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
+}
 }

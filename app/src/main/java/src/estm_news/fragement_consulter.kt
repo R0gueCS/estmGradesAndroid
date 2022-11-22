@@ -8,8 +8,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_admin.*
+import kotlinx.android.synthetic.main.activity_admin.consulter
+import kotlinx.android.synthetic.main.fragment_fragement_consulter.*
 import kotlinx.android.synthetic.main.fragment_fragement_modifier.*
+import kotlinx.android.synthetic.main.fragment_fragement_modifier.cne
 
 class fragement_consulter : Fragment() {
     var PREFS_KEY = "prefs"
@@ -35,15 +39,21 @@ class fragement_consulter : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         consulter.setOnClickListener {
-            sharedPreferences = this.requireActivity().getSharedPreferences(PREFS_KEY, Context.MODE_PRIVATE)
+            if (cne.text.toString().isNotEmpty()){
+                sharedPreferences = this.requireActivity().getSharedPreferences(PREFS_KEY, Context.MODE_PRIVATE)
 
-            val editor: SharedPreferences.Editor = sharedPreferences.edit()
+                val editor: SharedPreferences.Editor = sharedPreferences.edit()
 
-            editor.putString(CNE_KEY, cne.text.toString())
+                editor.putString(CNE_KEY, cne.text.toString())
 
-            editor.apply()
-            val view = Intent(this.activity, ItemDetailHostActivity::class.java)
-            startActivity(Intent(view))
+                editor.apply()
+                val view = Intent(this.activity, ItemDetailHostActivity::class.java)
+                startActivity(Intent(view))
+            }else{
+                Toast.makeText(requireContext(), "Veuilliez remplir le champs cne!!", Toast.LENGTH_SHORT).show();
+
+            }
+
         }
     }
 
