@@ -1,4 +1,5 @@
-# estmNewsAndroid
+# estmGradesAndroid
+
 uni homework consists of creating an android application with two spaces, one for the students and one for the admin (professor)
 
 ## Student :
